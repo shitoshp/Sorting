@@ -1,21 +1,15 @@
 #include <iostream>
 #include <algorithm>
+#include <ctime>
 
-void print(int *a, int n)
-{
-	int i = 0;
-	while (i < n) {
-		std::cout << a[i] << ",";
-		i++;
-	}
-	std::cout << "\n";
-}
+
+using namespace std;
 
 int partition(int *arr, const int left, const int right) {
 	const int mid = left + (right - left) / 2;
 	const int pivot = arr[mid];
 	// move the mid point value to the front.
-	std::swap(arr[mid], arr[left]);
+	swap(arr[mid], arr[left]);
 	int i = left + 1;
 	int j = right;
 	while (i <= j) {
@@ -28,10 +22,10 @@ int partition(int *arr, const int left, const int right) {
 		}
 
 		if (i < j) {
-			std::swap(arr[i], arr[j]);
+			swap(arr[i], arr[j]);
 		}
 	}
-	std::swap(arr[i - 1], arr[left]);
+	swap(arr[i - 1], arr[left]);
 	return i - 1;
 }
 
@@ -43,25 +37,25 @@ void quicksort(int *arr, const int left, const int right, const int sz) {
 
 
 	int part = partition(arr, left, right);
-	
+
 
 	quicksort(arr, left, part - 1, sz);
 	quicksort(arr, part + 1, right, sz);
 }
 
 int main() {
-	int arr[1000001];
-	for (int i = 1; i < 1000001; i++)
-	{
-		arr[i] = i;
-	}
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	std::cout << arr[100000];
-	std::cout << sizeof(arr[0]);
-	//print(arr, sz);
-	quicksort(arr, 0, sz - 1, sz);
-	//print(arr, sz);
-	system("pause");
+	int numExamples = 1000000;
+	int myadd [numExamples];
+	for(int i = 0 ; i < numExamples ; i++){myadd[i] = numExamples - i;}
+
+	clock_t time;
+  time = clock();
+
+	quicksort(myadd, 0, numExamples - 1, numExamples);
+
+	time = clock() - time;
+
+	cout << "The time taken to sort 1,000,000 numbers is: " << float(time)/CLOCKS_PER_SEC << " secs" << endl;
 	return 0;
-	
+
 }

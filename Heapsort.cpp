@@ -44,9 +44,9 @@ void makeMax(int *myList, int n){
 
 int main(){
 
-  int numExamples = 1000000;
+	int numExamples = 10;
   int myadd [numExamples];
-  for(int i = 1 ; i <= numExamples ; i++){myadd[i] = numExamples - i+1;}
+  for(int i = 0 ; i < numExamples ; i++){myadd[i] = numExamples - i;;}
 
   clock_t time;
   time = clock();

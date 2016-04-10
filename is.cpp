@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>
+
 using namespace std;
 
 void insertion_sort(int arr[], int length) {
@@ -17,13 +19,18 @@ void insertion_sort(int arr[], int length) {
 }
 
 int main() {
-	int arr[1000000];
-	for (int i = 1; i < 1000001; i++) {
-		
-		arr[i - 1] = i;
-	}
-	insertion_sort(arr, 1000000);
-	cout << arr[100];
-	system("pause");
-	return 0;
+  int numExamples = 1000000;
+  int myadd [numExamples];
+  for(int i = 0 ; i < numExamples ; i++){myadd[i] = numExamples - i;}
+
+  clock_t time;
+  time = clock();
+
+	insertion_sort(myadd, numExamples);
+
+  time = clock() - time;
+
+  cout << "The time taken to sort 1,000,000 numbers is: " << float(time)/CLOCKS_PER_SEC << " secs" << endl;
+
+
 }
