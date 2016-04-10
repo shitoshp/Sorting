@@ -44,12 +44,13 @@ void makeMax(int *myList, int n){
 
 int main(){
 
-	int numExamples = 10;
+  int numExamples = 1000000;
   int myadd [numExamples];
-  for(int i = 0 ; i < numExamples ; i++){myadd[i] = numExamples - i;;}
+  for(int i = 1 ; i <= numExamples ; i++){myadd[i] = numExamples - i+1;}
 
   clock_t time;
   time = clock();
+
 	makeMax(myadd, numExamples);
 	HeapSort(myadd, numExamples);
 
