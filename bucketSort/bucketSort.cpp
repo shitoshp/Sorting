@@ -48,7 +48,7 @@ int main()
 
     clock_t t;
     t = clock();
-    bucketSort(unsorted_array, n, SIZE);
+    bucketSort(unsorted_array, n);
     t = clock() - t;
     
 
